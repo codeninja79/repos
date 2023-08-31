@@ -7,6 +7,92 @@
 </head>
 <body>
     <script>
+        function getComputerChoice(){
+            let rps=['Rock', 'Paper', 'Scissor']
+            return rps[Math.floor(Math.random()*rps.length)];
+        }
+        let pCount=0
+        let cCount=0
+        
+        function rpsRound(playerSelection,computerSelection){
+            let pChoice=playerSelection.toLowerCase()
+            let compChoice=computerSelection.toLowerCase()
+            
+            console.log("The computer chose: " + compChoice);
+            console.log("You chose: " + pChoice);
+            if(pChoice=='rock' && compChoice=='paper'){
+               cCount++
+               return "You lose, comp score: " + cCount
+               
+             }
+            else if(pChoice=='rock' && compChoice=='scissor'){
+               pCount++
+               return "You win, your score: " + pCount
+               
+             }
+                
+            else if(pChoice=='rock' && compChoice=='rock'){
+               return "Its a draw"
+             }
+                
+            if(pChoice=='paper' && compChoice=='paper'){
+                return "Its a draw"
+             }
+               
+            else if(pChoice=='paper' && compChoice=='scissor'){
+               cCount++
+               return "You lose, comp score: " + cCount
+               
+             }
+                
+            else if(pChoice=='paper' && compChoice=='rock'){
+               pCount++
+               return "You win, your score: " + pCount
+               
+             }
+                
+             if(pChoice=='scissor' && compChoice=='paper'){
+               pCount++
+               return "You win, your score: " + pCount
+               
+             }
+               
+            else if(pChoice=='scissor' && compChoice=='scissor'){
+                return "Its a draw"
+             }
+                
+            else if(pChoice=='scissor' && compChoice=='rock'){
+               cCount++
+               return "You lose, comp score: " + cCount
+               
+             }
+               
+        }
+        function game(){
+            let player=prompt("enter rock, paper or scissors!")
+            
+            console.log(rpsRound(player,getComputerChoice()))
+           
+                
+            
+        }
+        console.log("Round 1 ");
+        game() 
+        console.log("Round 2");
+        game()
+        console.log("Round 3");
+        game()
+        console.log("Round 4");
+        game()
+        console.log("Round 5");
+        game()
+        console.log("Final score-> Player: " + pCount + " , Computer: " + cCount);
+        if(pCount>cCount)
+                console.log("You won the game!");
+            else if(pCount==cCount)
+                console.log("Its a tie!");
+            else if(pCount<cCount)
+                console.log("You lost the game!");
         
     </script>
     
